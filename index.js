@@ -1,13 +1,30 @@
+require('dotenv').config();
+
 const express = require("express");
+const mongoose = require('mongoose');
+const routes = require('./routes/routes');
+
+const mongoString = process.env.DataBaseUrl;
+const PORT = process.env.PORT || 3000;
+
+mongoose.connect(mongoString);
+const database = mongoose.connection;
+
+database.on('error', (error) => {
+    console.log(error)
+});
+
+database.once('connected', () => {
+    console.log('Database Connected');
+});
 
 const app =  express();
 
-const PORT = process.env.PORT || 3000;
+app.use(express.json());
 
-const client = new shopify.clients.Rest({session});
-const response = client.get({path: 'shop'});
+app.use('/api', routes);
 
 
-// app.listen(PORT, ()=>{
-//     console.log(`Server started on ${PORT}`);
-// });
+app.listen(PORT, ()=>{
+    console.log(`Server started on ${PORT}`);
+});
