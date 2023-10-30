@@ -11,6 +11,7 @@ const dbSchema = mongoose.Schema({
         required: true,
     },
     store_location: String,
+    location_id: String,
     time_stamp: {
         type: Date,
         default: Date.now(),
