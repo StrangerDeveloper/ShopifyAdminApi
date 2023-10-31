@@ -23,9 +23,8 @@ const app =  express();
 
 app.use(express.json());
 
-app.use('/api', routes);
-
-app.use('/api', shopifyRouter);
+//app.use('/api', routes);
+app.use('/shopify/api', shopifyRouter);
 
 app.listen(PORT, ()=>{
     console.log(`Server started on ${PORT}`);
