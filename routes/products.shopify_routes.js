@@ -25,7 +25,7 @@ router.get('/products/:locationId', async (req, res)=>{
         }
       );
 
-     console.log(`LocationInventory: ${inventoryResponse.data.inventory_levels.length}`);
+     //console.log(`LocationInventory: ${inventoryResponse.data.inventory_levels.length}`);
       //var length = inventoryResponse.data.inventory_levels.length;
       //console.log('Inventory Response:', inventoryResponse);
       //console.log('Data Property:', inventoryResponse.data);
